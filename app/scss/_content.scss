@@ -503,13 +503,14 @@ figcaption{
 	}
 	.icon-content{
 		position: absolute;
+		transition: all 0.3s ease;
 		width: 115px;
 		height: 115px;
 		right: 0;
 		top: 50%;		
 		background-color: white;
 		z-index: 1;
-		transform: translate(50%, -50%);
+		transform: translate(55%, -50%);
 		@extend .shadow-def;
 		border-radius: 50%;
 		align-items: center;
@@ -535,27 +536,48 @@ figcaption{
 		}
 	}
 	figure{
-		&:nth-child(even){
-			.flex-adaptive{
-				flex-direction: row-reverse;
-			}
+		&:hover{
 			.icon-content{
-				right: auto;
-				left: 0;
-				transform: translate(-50%, -50%);
+				background-color: $color-1;
+				color: white;
 			}
-			.img{
-				&:before{
-					right: auto;					
-					left: -12px;
+		}
+		@media (min-width: 992px){
+			&:nth-child(even){
+				.flex-adaptive{
+					flex-direction: row-reverse;
+				}
+				.icon-content{
+					right: auto;
+					left: 0;
+					transform: translate(-55%, -50%);
+				}
+				.img{
+					&:before{
+						right: auto;					
+						left: -12px;
+					}
 				}
 			}
+		}
+	}
+	@media (max-width: 991px) {
+		.img-content{
+			width: 100%;
+		}
+		.desc-content{
+			padding: 20px 20px;
+		}
+		.icon-content{
+			top: 10px;
+			right: auto;
+			transform: scale(0.8);
+			left: 10px;
 		}
 	}
 }
 
 .line-1{
-	padding-left: 65px;
 	&:before{
 		@extend .clafclear;
 		//left: 0;
@@ -564,6 +586,9 @@ figcaption{
 		transform: translate(-65px, 10px);
 		background-color: white;
 		width: 40px;
+	}
+	@media (min-width: 991px){
+		padding-left: 65px;
 	}
 }
 .block-title-img{
@@ -575,8 +600,14 @@ figcaption{
 .short-about{
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 	min-height: 760px;
 	color: white;
+	@media (max-width: 991px){
+		min-height: auto;
+		background-color: $color-3;
+		padding: 20px 15px;
+	}
 	.desc-content{
 		position: relative;
 		z-index: 2;
@@ -584,6 +615,11 @@ figcaption{
 	.wrapper{
 		display: flex;
 		align-items: center;
+		@media (max-width: 991px){
+			background-size: 100%;
+			//background-image: url('../img/bg/short-about-img-bg.png');
+			display: block;
+		}
 	}
 	.container{
 		display: flex;
@@ -592,7 +628,10 @@ figcaption{
 	.img-content{
 		position: absolute;
 		right: 0;
-
+		@media (max-width: 991px){
+			position: relative;
+			width: 100%;
+		}
 	}
 	.img{
 		width: 770px;
@@ -624,6 +663,15 @@ figcaption{
     	z-index: -2;
     	top: 50%;
     	transform: translateY(-50%);
+		}
+		@media (max-width: 991px){
+			height: auto;
+			width: 100%;
+			margin-top: 0;
+			//display: none;
+			&:after{
+				display: none;
+			}
 		}
 	}
 }
@@ -681,6 +729,12 @@ figcaption{
 			
 		}
 	}
+	@media (max-width: 991px){
+		position: relative;
+		left: 0;
+		bottom: 0;
+		margin: 40px auto;
+	}
 }
 
 
@@ -691,13 +745,19 @@ figcaption{
 		background-repeat: no-repeat;
 		padding-bottom: 60px;
 		@media (max-width: 991px) {
+			padding-bottom: 10px;
 			background-image: none;
 		}
 	}
 	.img-content{
-
 		img{
-			margin-top: -150px;
+			display: block;
+			@media (min-width: 992px){
+				margin-top: -150px;
+			}
+		}
+		@media (max-width: 991px) {
+			display: none;	
 		}
 	}
 }

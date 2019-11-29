@@ -105,7 +105,7 @@
 										</div>
 										<div>
 											Наш адрес<br>
-											<a href="javascript:;" ><span class="bolder-text">Открыть карту</span></a>
+											<a href="javascript:;" data-src="#map" data-fancybox ><span class="bolder-text">Открыть карту</span></a>
 										</div>
 									</div>
 									<div class="info-item">
@@ -260,7 +260,7 @@
 							<h2 class="h1">О компани  Eco Drip </h2>
 							<div class="line-1">
 								<p>OOO “ECO DRIP LUX” является крупнейшим производителем систем капельного орошения в Узбекистане. У нас богатый опыт в сфере производства и установки систем капельного орошения. Мы поставляем широкий спектр продукции и сотрудничаем с другими ведущими производителями мира. </p>
-								<br><br><br>
+								<br>
 								<p><a href=""><b>Подробнее</b> <i class="icm p-l-5 icm-arrow-pointing-to-right"></i></a></p>
 							</div>
 						</div>
@@ -422,9 +422,63 @@
 								<div class="btn-content text-center">
 									<p class="gray">Нажимая кнопку, вы даете свое согласие на обработку <a href=""><b><u>Персональных данных</u></b></a></p>
 									<span class="btn-def m-t-15">
-										<button type="submit">Отправить</button>
+										<button type="submit">Оставить заявку</button>
 									</span>
 								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-info m-v-30">
+						<h2 class="h1">Контакты</h2>
+						<div class="footer-info-items flex-adaptive">
+							<div class="item">
+								<div class="flex-adaptive">
+									<i class="icm icm-phone-call"></i>
+									<div>
+										<h5>Контактный номер:</h5>
+										<p><big>+998 00 <b>000-00-00</b></big></p>
+										<p><big>+998 00 <b>000-00-00</b></big></p>
+									</div>
+								</div>
+								<div class="socicons m-v-30">
+									<ul class="soc-list">
+										<li><a href="" target="_blank"><i class="icm icm-instagram"></i></a></li>
+										<li><a href="" target="_blank"><i class="icm icm-telegram"></i></a></li>
+										<li><a href="" target="_blank"><i class="icm icm-facebook-logo"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="item socmsgs">
+								<h5>Написать в мессенджеры:</h5>
+								<ul class="soc-list mwbox">
+									<li><a href="" target="_blank"><i class="icm icm-telegram"></i><b>Написать <u>Telegram</u></b></a></li>
+									<li><a href="" target="_blank"><i class="icm icm-whatsapp"></i><b>Написать <u>WhatsApp</u></b></a></li>
+								</ul>
+								<span class="icon-content mwbox m-t-15"><a href="mailto:mail@example.uz"><i class="icm icm-envelope"></i>mail@example.uz</a></span>
+							</div>
+							<div class="item">
+								<div class="mwbox text-left-md">
+									<h5>Наш адрес:</h5>
+									<span class="icon-content m-t-15 flex">
+										<i class="icm icm-placeholder"></i>
+										<div>
+											<a href="javascript:;" data-src="#map" data-fancybox><big><b>Открыть карту</b></big><br></a>
+											г.Ташкент, ул. Садыка Азимова 68
+										</div>
+									</span>
+									<span class="icon-content m-t-15 flex">
+										<i class="icm icm-clock2"></i>
+										<div>Пн-Сб 09:00 - 21:00</div>
+									</span>
+									
+								</div>
+							</div>
+
+						</div>
+						<!-- MAP -->
+						<div class="hide">
+							<div class="contacts-map col-xs-8 col-xs-offset-2 clearfix" id="map">
+								<div id="map-canvas" class="map-canvas map-container"></div>
 							</div>
 						</div>
 					</div>
@@ -437,12 +491,8 @@
 							<p>© <time id="copydate"></time> Все права защищены.</p>
 							<script>copydate.innerText = new Date().getFullYear()</script>
 						</div>
-						<div class="col-md-4 socicons">
-							<ul class="soc-list">
-								<li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
-								<li><a href="" target="_blank"><i class="fa fa-twitter"></i></a></li>
-							</ul>
+						<div class="col-md-4">
+
 						</div>
 						<div class="dev col-md-4 hidden-xs p-h-15 hidden-sm text-right-md p-v-10">
 							<p>
@@ -458,7 +508,83 @@
 	<!-- SCRIPTS -->
 	<script src="js/scripts.min.js"></script>
 	<script src="js/main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVUinUZqQAIM1NfbavWbOKtsc3l-XE_ag"></script>
+  <script type="text/javascript">
+  	var mapEls =  document.getElementsByClassName("map-canvas");
+  	console.log(mapEls);
+  	var dotsArray = [
+  		{
+  			coordinates: [41.34765, 69.354354343],
+  			description: "<div class='window-content align-center'><p>м. Львов, вул. Мирзо Улугбек, 317</p></div>"
+  		}
+  	];
+  	
+	  if (mapEls.length) {
+	    var map;
+	    function initialize(mapEl, properties) {
 
+	      var mapOptions = {
+	        mapTypeId: google.maps.MapTypeId.ROADMAP,
+	        mapTypeControl: false,
+	        zoom: 15,
+	        zoomControl: true,
+	        zoomControlOptions: {
+	          style: google.maps.ZoomControlStyle.DEFAULT,
+	          position: google.maps.ControlPosition.DEFAULT
+	        },
+	        panControl: true,
+	        panControlOptions: {
+	          position: google.maps.ControlPosition.LEFT_TOP
+	        },
+	        streetViewControl: false,
+	        scaleControl: false,
+	        overviewMapControl: false,
+	        center: new google.maps.LatLng(properties.coordinates[0], properties.coordinates[1])
+	      };
+
+
+
+	      map = new google.maps.Map(mapEl, mapOptions);
+
+	      var marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(properties.coordinates[0], properties.coordinates[1]),
+	        map: map,
+	        //icon: "img/icons/map-marker.png",
+	        title: 'marker'
+	      });
+
+	      map.setOptions({
+	        //styles: mapStyles,
+	        disableDefaultUI: true
+	      });
+
+	      var transitLayer = new google.maps.TransitLayer();
+	      transitLayer.setMap(map);
+
+	      var bicyclingLayer = new google.maps.BicyclingLayer();
+	      bicyclingLayer.setMap(map);
+
+	      
+
+	      var infowindow = new google.maps.InfoWindow({
+	        content: properties.description
+	      });
+
+	      google.maps.event.addListener(marker, 'click', function() {
+	        infowindow.open(map, marker);
+	      });
+	      
+	    }
+
+	    for (var i = 0; i < mapEls.length; i++) {
+	    	initialize(mapEls[i], dotsArray[i]);
+	    }
+
+	    //google.maps.event.addDomListener(window, 'load', initialize);
+
+	  }
+
+  </script>
 </body>
 
 </html>
