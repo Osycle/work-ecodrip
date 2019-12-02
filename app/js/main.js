@@ -288,7 +288,9 @@
 
 
     
-
+		$("[data-toggle-menbar]").on("click", function(){
+			$(".menbar").toggleClass("opened");
+		});
 
 
 		function onLoaded() {

@@ -13,8 +13,8 @@ $header-min-menu: 70px;
 	z-index: 110;
 	right: 0;
 	left: 0;
-	position: absolute;
-	//position: relative;
+	//position: absolute;
+	position: fixed;
 	pointer-events: none;
 	&:not([class*="bg-color"]){
 		background-color: transparent;
@@ -325,6 +325,242 @@ ul[class*="sub-menu"]{
 
 
 
+.menbar{
+	width: 100%;
+	position: fixed;
+	height: 100vh;
+	top: 0;
+	z-index: 111;
+	right: 0;
+	color: black;
+	transition: all 0.5s ease;
+	.container{
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	transition-delay: 0.3s;
+	.adab-scroll{
+		height: 100vh;
+		overflow-y: auto;
+	}
+	.wrapper{
+		position: relative;
+		background-color: transparent;
+		transition: 0.5s ease;
+		&:before{
+			@extend .clafclear;
+			background-color: $color-1;
+			width: 58.33333%;
+			border-radius: 50px 0 0 50px;
+			right: 0;
+			top: 0;
+		}
+		&:after{
+			@extend .clafclear;
+			z-index: 12;
+			right: 58.33333%;
+			transform: translateX(50%);
+			margin-right: -15px;
+			top: 15px;
+			width: 629px;
+			backface-visibility: hidden;
+			height: 103px;
+			background-repeat: no-repeat;
+			background-image: url('../img/bg/ecodrip.png');
+			transition: all 0.8s ease-out;
+			transform: skewX(-7deg) translateX(50%);
+			filter: blur(10px) 
+							drop-shadow(0px 5px 15px white)
+							drop-shadow(0px -5px 15px white) 
+							drop-shadow(0px -10px 15px white)
+							drop-shadow(0px 10px 15px white);
+
+		}
+
+	}
+	&:before{
+		@extend .clafclear;
+		width: 6000px;
+		left: -3000px;
+		background-color: rgba(black, 0.5);
+		transition: all 0.4s cubic-bezier(0.39, 0.58, 0.57, 1);
+	}
+	*{
+		backface-visibility: hidden;
+	}
+	&:not(.opened){
+		transform: translateY(-100%);
+		pointer-events: none;
+		&:before{
+			pointer-events: none;
+			opacity: 0;
+		}
+		.menbar-btn-toggle{
+			transform: translateY(-100px);
+		}
+	}
+	[data-animate-box]{
+		opacity: 0;
+		transition: all 0.4s ease;
+	}
+	.wrapper{
+		background-color: white;
+		&:before{
+			height: 0%;
+			transition: all 0.5s ease 0s;
+		}
+	}
+	.menbar-info{
+		[data-animate-box]{
+			transform: translateX(-100px);
+		}
+	}
+	.menbar-menu{
+		[data-animate-box]{
+			transform: translateX(100px);
+		}
+	}
+	&.opened{
+		transition-delay: 0s;
+		[data-animate-box]{
+			opacity: 1;
+			transform: scale(1);
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}){transition-delay: ($i*100+300)#{"ms"};}
+			}
+		}
+		.wrapper{
+			transition: none;			
+			&:before{
+				transition: all 0.8s ease 0.3s;
+				height: 100%;
+			}
+			&:after{
+				transition-delay: 0.4s;
+				transform: scale(1) translateX(50%);
+				filter: blur(0) 
+							drop-shadow(0px 0px 0px transparent);
+			}
+		}
+	}
+	@media (max-width: 991px) {
+		width: 90%;
+		width: calc(100% - 30px);
+	}
+}
+.menbar-menu{
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	color: white;
+	a{
+		display: block;
+	}
+	& > ul{
+		width: 100%;
+		& > li{
+			border-bottom: 1px solid rgba(white, 0.05);
+			& > a{
+				&[aria-expanded="true"]{
+					background-color: rgba(white, 0.1);
+				}
+				padding: 15px 15%;
+			
+			}
+		}
+	}
+	
+	li{
+		font-weight: 600;
+		position: relative;
+	}
+	.panel-collapse{
+		padding-left: 20%;
+		padding-right: 20%;
+		a{
+			margin-top:7px;
+			margin-bottom:7px;
+			padding: 8px 15px;
+			&:hover{
+				background-color: rgba(white, 0.1);
+			}
+		}
+	}
+}
+.menbar-btn-toggle{
+	position: absolute;
+	width: 60px;
+	z-index: 2;
+	height: 60px;
+	border: 1px solid white;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+	top: 30px;
+	right: calc( (50vw - (1170px / 2) ) );
+	transition-delay: 0.6s;
+	i{
+		font-size: 16px;
+		&:before, &:after{
+			content: "";
+			height: 2px;
+			position: absolute;
+			width: 25px;
+			left: 50%;
+			margin-left: -13px;
+			transform: rotate(45deg);
+			transform-origin: 50%;
+			background-color: white;
+		}
+		&:after{
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+
+
+.menbar-info{
+	div>h5{
+		margin-top: 0;
+	}
+	.flex-adaptive{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		*{
+			vertical-align: middle;
+		}
+		.icm{
+			font-size: 25px;
+			color: $color-1;
+			min-width: 40px;
+		}
+	}
+	.socmsgs{
+		.icm{
+			color: white;
+		}
+		.icm-whatsapp{
+			background-color: $color-2;
+		}
+		.icm-telegram{
+			background-color: $color-1;
+		}
+	}
+	.socicons{
+		li{
+			color: gray;
+			&:hover{
+				color: $color-1;
+			}
+		}
+	}
+}
 
 
 
