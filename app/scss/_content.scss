@@ -135,15 +135,26 @@ small{
 			transform: translate(-100%, -50%);
 			background-color: $color-1;
 			height: 4px;
-
 		}
 		@media (min-width: 992px){
 			padding-left: 60px;
 		}
 		@media (max-width: 991px){
-			&:before{
+			&:before, &:after{
 				display: none;
 			}
+		}
+	}
+	&.text-center{
+		h1:after{
+			@extend .clafclear;
+			width: 40px;
+			pointer-events: none;
+			top: 50%;
+			margin-left: -20px;
+			transform: translate(100%, -50%);
+			background-color: $color-1;
+			height: 4px;
 		}
 	}
 }
@@ -791,5 +802,131 @@ figcaption{
 			margin: auto;
 			width: auto;
 		}
+	}
+}
+.p-v-80.block{
+	padding: 130px 0;
+}
+
+
+
+//irrigation
+.irrigation-items{
+	figure{
+		transition: all 0.3s ease;
+		background-color: white;
+		border-radius: 20px;
+		border: 1px solid $color-gray-3;
+		&:hover{
+			@extend .shadow-def;
+			border-color: transparent;
+		}
+	}
+	.img{
+		height: 240px;
+		border-radius: 17px;
+		background-size: cover;
+	}
+	.desc-content{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+
+
+
+
+//advantages
+.advantages{
+	position: relative;
+	.block-text{
+		font-size: 240px;
+		position: absolute;
+		line-height: 100%;
+		font-weight: 900;
+		color: white;
+		filter: grayscale(1);
+		opacity: 0.3;
+		left: 5%;
+		top: -20px;
+		z-index: -1;
+		text-shadow: 0px 0px 2px black;
+	}
+}
+.advantages-items{
+	figure{
+		border-radius: 20px;
+		padding: 25px;
+		background-color: $color-gray-1;
+	}
+	.img-content{
+		font-size: 60px;
+		color: $color-1;
+	}
+	h4{
+		font-weight: 800;
+	}
+	.desc-content{
+		margin-top: 20px;
+	}
+}
+
+
+
+//irrigation-article
+.irrigation-article{
+	.video-preload{
+		padding-bottom: 100px;
+		.img-content{
+			position: relative;
+		}
+		.img{
+			height: 500px;
+			border-radius: 20px;
+			background-size: cover;
+			position: relative;
+			overflow: hidden;
+			&:before{
+				@extend .clafclear;
+				background-color: $color-1;
+				opacity: 0.3;
+			}
+		}
+	}
+	.btn-yt-play{
+		right: 75px;
+		top: auto;
+		bottom: 60px;
+		left: auto;
+	}
+	.swim-text{
+		position: absolute;
+		white-space: nowrap;
+		color: black;
+    left: -420px;
+    bottom: -125px;
+		&:before{
+			@extend .clafclear;
+			background-image: url('../img/other/wayplay.png');
+			width: 162px;
+			bottom: 7px;
+			right: -15px;
+			transform: translateX(100%);
+			height: 127px;
+		}
+	}
+}
+
+//irrigations-imgs-items
+.irrigations-imgs-items{
+	.img-content{
+		overflow: hidden;
+		position: relative;
+		border-radius: 20px;
+	}
+	.img{
+		height: 500px;
+		background-size: cover;
 	}
 }

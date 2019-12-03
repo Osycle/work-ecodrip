@@ -190,15 +190,7 @@ $gradient-gray-1: linear-gradient(to bottom, #ffffff, #f6f6f6);
 		--BREADCRUMP--
 */
 .breadcrumb-container{
-	background-color: $color-gray-1;
 	position: relative;
-	&:before{
-		@extend .clafclear;
-    height: 60px !important;
-    top: -41px;
-    background-color: $color-gray-1;
-    z-index: -1;
-	}
 	.lang{
 		padding: 10px 0;
 		margin: 20px 0;
