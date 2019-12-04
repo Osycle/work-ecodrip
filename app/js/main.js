@@ -40,16 +40,15 @@
 		/*Owl carousel*/
 		var owlBtn = [
 			'<span class="owl-btn previous">'+
-				'<svg viewBox="0 0 100 100"><path d="M 40,50 L 55,65 L 55,60 L 45,50  L 55,40 L 55,35 Z" class="arrow"></path></svg>'+
+				'<i class="icm icm-arrow-pointing-to-right"></i>'+
 			'</span>', 
 			'<span class="owl-btn next">'+
-				'<svg viewBox="0 0 100 100"><path d="M 40,50 L 55,65 L 55,60 L 45,50  L 55,40 L 55,35 Z" class="arrow"></path></svg>'+
+				'<i class="icm icm-arrow-pointing-to-right"></i>'+
 			'</span>'
 		]
 
 
-
-		$(".short-partners-items.owl-carousel").owlCarousel({
+		$(".irrigation-imgs-items.owl-carousel").owlCarousel({
 			nav: true,
 			//items: 3,
 			dots: false,
@@ -58,28 +57,15 @@
 			touchDrag: false,
 			responsive:{
 				0:{items:1},
-				991:{items:5}
+				991:{items:1}
 			},
 			navText : owlBtn,
 			margin: 0
 		});
 
 
+
 		$(".short-productions-items.owl-carousel").owlCarousel({
-			nav: true,
-			//items: 3,
-			dots: false,
-			dotsEach: true,
-			autoplay: true,
-			touchDrag: checkSm(),
-			responsive:{
-				0:{items:1},
-				991:{items:4}
-			},
-			navText : owlBtn,
-			margin: 30
-		});
-		$(".short-news-items.owl-carousel").owlCarousel({
 			nav: true,
 			//items: 3,
 			dots: false,
@@ -93,15 +79,48 @@
 			navText : owlBtn,
 			margin: 30
 		});
+		$(".projects-items.owl-carousel").owlCarousel({
+			nav: true,
+			//items: 3,
+			dots: false,
+			dotsEach: true,
+			autoplay: true,
+			touchDrag: checkSm(),
+			responsive:{
+				0:{items:1},
+				991:{items:2}
+			},
+			navText : owlBtn,
+			margin: 30
+		});
 
-		
-		if( $(".owl-nav-style-1").length > 0 ){
-			$(".owl-nav-style-1").map(function( i, el ){
-				$(el).find(".owl-prev").after($(el).find(".owl-dots"));
+		$(".certifications-items.owl-carousel").owlCarousel({
+			nav: true,
+			//items: 3,
+			dots: false,
+			dotsEach: true,
+			autoplay: true,
+			touchDrag: checkSm(),
+			responsive:{
+				0:{items:1},
+				991:{items:2}
+			},
+			navText : owlBtn,
+			margin: 30
+		});
+
+		$(".owl-carousel.owl-meter .owl-prev").after('<div class="owl-counter"><span class="meter-current"></span>/<span class="meter-max"></span></div>');
+
+		$(".owl-carousel.owl-meter").map(function(index, item){
+			item = $(item);
+			item.on("changed.owl.carousel", function(event){
+				console.log(event);
+				item.find(".meter-current").text(event.item.index+1);
+				item.find(".meter-max").text(event.item.count);
 			})
-			
-		}
-		
+			item.trigger("next.owl.carousel");
+			item.trigger("prev.owl.carousel");
+		})
 
 
 

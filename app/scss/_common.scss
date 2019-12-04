@@ -1074,6 +1074,7 @@ main{
 		position: relative;
 		line-height: 180%;
 	}
+	@extend .list-style-1;
 	ul:not([class]){
 		text-align: left;
 		margin-top: 10px;
@@ -1081,6 +1082,7 @@ main{
 		list-style: disc;
     padding-left: 15px;
     li{
+    	font-weight: 800;
     	margin-top: 5px;
     	line-height: 170%;
     	margin-bottom: 5px;
@@ -1136,11 +1138,21 @@ hr{
 		margin-right: auto;
 		display: block;
 	}
+	&>img{
+		margin-top: 0;
+	}
+	p, li{
+		font-size: em(16);
+	}
+	
+	
+	
 	p:not([class*="color-"]){
 		line-height: 200%;
 		color: $color-gray-5;
 		margin-bottom: 20px;
 		font-weight: 500;
+
 		b{
 			color: black;
 		}

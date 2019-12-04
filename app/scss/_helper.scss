@@ -553,12 +553,18 @@ html{
 
 
 img[align="right"], figure[align="right"]{
-	margin: 15px 0 15px 15px;
+	margin: 30px 0 30px 30px;
 	float: right; 
+	&:nth-child(1){
+		margin-top: 0;
+	}
 }
 img[align="left"], figure[align="left"]{
-	margin: 15px 15px 15px 0;
+	margin: 30px 30px 30px 0;
 	float: left;
+	&:nth-child(1){
+		margin-top: 0;
+	}
 }
 [underline]{
 	text-decoration: underline;
