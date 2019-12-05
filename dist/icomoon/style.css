@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?e7eujj');
+  src:  url('fonts/icomoon.eot?e7eujj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?e7eujj') format('truetype'),
+    url('fonts/icomoon.woff?e7eujj') format('woff'),
+    url('fonts/icomoon.svg?e7eujj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icm-"], [class*=" icm-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icm-fertilizer:before {
+  content: "\e900";
+}
+.icm-hand:before {
+  content: "\e901";
+}
+.icm-instagram:before {
+  content: "\e902";
+}
+.icm-light-bulb:before {
+  content: "\e903";
+}
+.icm-phone-call:before {
+  content: "\e904";
+}
+.icm-placeholder:before {
+  content: "\e905";
+}
+.icm-sea:before {
+  content: "\e906";
+}
+.icm-sprinkle:before {
+  content: "\e907";
+}
+.icm-telegram:before {
+  content: "\e908";
+}
+.icm-water:before {
+  content: "\e909";
+}
+.icm-watering:before {
+  content: "\e90a";
+}
+.icm-whatsapp:before {
+  content: "\e90b";
+}
+.icm-wind:before {
+  content: "\e90c";
+}
+.icm-arrow-pointing-to-right:before {
+  content: "\e90d";
+}
+.icm-clock:before {
+  content: "\e90e";
+}
+.icm-clock2:before {
+  content: "\e90f";
+}
+.icm-drop-of-liquid:before {
+  content: "\e910";
+}
+.icm-envelope:before {
+  content: "\e911";
+}
+.icm-facebook-logo:before {
+  content: "\e912";
+}

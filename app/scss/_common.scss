@@ -4,11 +4,11 @@
 		--Variables--
 */
 
-$color-1: #0082f0 !default;
-$color-2: #1cc40a !default;
-$color-3: #036ec8 !default;
-$color-4: #f15045 !default;
-$color-5: #65a328 !default;
+$color-1: #0082f0;
+$color-2: #1cc40a;
+$color-3: #036ec8;
+$color-4: #f15045 ;
+$color-5: #65a328;
 $color-special-1: #2e1c11;
 
 $font-family-1: "Gilroy";
@@ -1008,7 +1008,7 @@ h3{
 	}
 }
 h4{
-	font-weight: 700;
+	font-weight: 800;
 	font-size: em(18);
 }
 h5{	
@@ -1017,27 +1017,6 @@ h5{
 	font-size: em(14);
 }
 
-.h-style-1{
-	&:after, &:before{
-		@extend .claf;
-		height: 3px;
-		top: inherit;
-		bottom: -10px;
-	}
-	&:before{
-		background-color: $color-gray-1;
-	}
-	&:after{
-		width: 38px;
-		background-color: $color-2;
-	}
-	@media (max-width:991px){
-		&:after{
-			transform: translateX(-50%);
-			left: 50%;
-		}
-	}
-}
 blockquote{
 	padding: 0 15px 0 35px;
 	border-left: 8px solid;

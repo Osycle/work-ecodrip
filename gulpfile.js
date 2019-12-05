@@ -35,7 +35,7 @@ gulp.task('sass', () =>
 	{
 	return gulp.src( app+'/scss/**/*.+(scss|sass)' )
 			.pipe( sass().on('error', sass.logError) )
-			.pipe( autoprefixer( {browsers: 'last 15 versions', cascade: false} ) )
+			.pipe( autoprefixer( {browsers: 'last 25 versions', cascade: false} ) )
 			.pipe( gulp.dest(app+'/css/') )
 			.pipe( browserSync.reload({stream:true}) );
 	}
